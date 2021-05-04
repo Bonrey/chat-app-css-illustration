@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+.message {
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  width: 8.5rem;
+
+  &.left {
+    background-color: map-get($secondary-colors, "message-background");
+    color: map-get($text-colors, "chat-on-the-left");
+  }
+
+  &.right {
+    background-color: map-get($secondary-colors, "white");
+    color: map-get($text-colors, "chat-on-the-right");
+  }
+
+  &.short { width: auto; }
+}

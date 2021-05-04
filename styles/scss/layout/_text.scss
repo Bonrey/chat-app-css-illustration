@@ -1,0 +1,6 @@
+@use '../abstracts' as *;
+
+.text_ {
+  h1 { color: map-get($text-colors, "main-heading"); }
+  p { color: map-get($text-colors, "paragraph"); }
+}

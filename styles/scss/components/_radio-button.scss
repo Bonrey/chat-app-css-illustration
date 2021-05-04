@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+$non-active: #f4a6ff;
+$active: #fcf0ff;
+
+.radio-button {
+  background: linear-gradient(90deg, map-get($gradient-colors, "light-magenta"),
+                                     map-get($gradient-colors, "light-violet"));
+  width: 10rem;
+  font-size: 0.5rem;
+  color: $non-active;
+
+  label {
+    transition: 400ms;
+  }
+
+  [type="radio"] {
+    appearance: none;
+    outline: none;
+    border: 0.0625rem solid map-get($secondary-colors, "radio-button-outline");
+    border-radius: 50%;
+    width: 0.75rem;
+    height: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 400ms;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: $active;
+      transition: 200ms;
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    &:hover, &:focus {
+      border-color: $active;
+
+      & + label {
+        color: $active;
+      }
+    }
+
+    &:checked {
+      border-color: $active;
+      
+      &::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  span { 
+    font-size: 0.65rem;
+    color: $active;
+  }
+}
