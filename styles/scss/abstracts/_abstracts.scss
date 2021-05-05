@@ -1,0 +1,48 @@
+$font-family: 'Rubik', sans-serif;
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700
+);
+
+$text-colors: (
+  "sub-heading-at-the-top": hsl(276, 100%, 81%),
+  "chat-on-the-left": hsl(276, 55%, 52%),
+  "chat-on-the-right": hsl(271, 15%, 43%),
+  "placeholder-text": hsl(206, 6%, 79%),
+  "main-heading": hsl(271, 36%, 24%),
+  "paragraph": hsl(270, 7%, 64%)
+);
+
+$gradient-colors: (
+  "light-magenta": hsl(293, 100%, 63%),
+  "light-violet": hsl(264, 100%, 61%)
+);
+
+$secondary-colors: (
+  "white": hsl(0, 0%, 100%),
+  "app-background": hsl(270, 20%, 96%),
+  "message-background": #ede5f4,
+  "submit-button-background": hsl(271, 36%, 24%),
+  "radio-button-outline": hsl(289, 100%, 72%)
+);
+
+%bg-pattern {
+  content: "";
+  position: fixed;
+  width: 30rem;
+  height: 45rem;
+  max-height: 80vh;
+  z-index: -1;
+}
+
+@mixin media($bp-name: "md") {
+  $bp: 768px;
+  @if $bp-name == "lg" {
+    $bp: 1024px;
+  }
+
+  @media only screen and (min-width: $bp) {
+    @content;
+  }
+}

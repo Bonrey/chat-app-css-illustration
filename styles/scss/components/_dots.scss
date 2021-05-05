@@ -1,0 +1,28 @@
+// @import '../abstracts/abstracts';
+// @import '../abstracts/animations';
+
+
+// .snippet {
+//   position: relative;
+
+//   .stage {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+//     padding: 1rem 0;
+//     overflow: hidden;
+
+//     .dot-typing {
+//       position: relative;
+//       left: -9999px;
+//       width: 0.5rem;
+//       height: 0.5rem;
+//       border-radius: 0.375rem;
+//       background-color: $dot-color;
+//       color: $dot-color;
+//       box-shadow: 9984px 0 0 0 $dot-color, 9999px 0 0 0 $dot-color, 10014px 0 0 0 $dot-color;
+//       animation: dot-typing 1.2s infinite linear;
+//     }
+//   }
+// }

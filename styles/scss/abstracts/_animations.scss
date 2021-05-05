@@ -1,0 +1,94 @@
+@use './abstracts' as *;
+
+@keyframes phone-appear {
+  0% { transform: translateX(-100vw); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes phone-appear-lg {
+  0% { transform: translateX(-50vw); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes text-appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes attribution-show {
+  0%    { opacity: 0; transform: translateY(-1rem); }
+  100%  { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes message-show {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes picture-show {
+  0% { opacity: 0; transform: scale(0); }
+  80% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes options-show {
+  0% { opacity: 0; transform: scale(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+
+// $dot-color-left: map-get($text-colors, "chat-on-the-left");
+// $dot-color-right: map-get($text-colors, "chat-on-the-right");
+// @mixin dot-typing($left: 0, $center: 0, $right: 0, $pos: "left") {
+//   $dot-color: $dot-color-left;
+//   @if $pos == "right" {
+//     $dot-color: $dot-color-right;
+//   }
+//   box-shadow: 999rem $left 0 0 $dot-color, 999.25rem $center 0 0 $dot-color, 999.5rem $right 0 0 $dot-color; 
+// }
+
+// @keyframes dot-typing {
+//   0% { @include dot-typing($dot-color: $dot-color-left); }
+//   16.667% { @include dot-typing($left: -0.75rem, $dot-color: $dot-color-left); }
+//   33.333% { @include dot-typing($dot-color: $dot-color-left); }
+//   50% { @include dot-typing($center: -0.75rem, $dot-color: $dot-color-left); }
+//   66.667% { @include dot-typing($dot-color: $dot-color-left); }
+//   83.333% { @include dot-typing($right: -0.75rem, $dot-color: $dot-color-left); }
+//   100% { @include dot-typing($dot-color: $dot-color-left); }
+// }
+
+// the first 2 messages
+@for $n from 1 through 2 {
+  .show-#{$n} {
+    opacity: 0;
+    animation: message-show 1s 1 forwards;
+    animation-delay: #{$n + 1.5}s;
+  }
+}
+
+// doggies
+@for $n from 3 through 5 {
+  .show-#{$n} {
+    opacity: 0;
+    animation: picture-show 1s 1 forwards;
+    animation-delay: #{$n + 1.5}s;
+  }
+}
+
+// the next 3 messages
+@for $n from 6 through 8 {
+  .show-#{$n} {
+    opacity: 0;
+    animation: message-show 1s 1 forwards;
+    animation-delay: #{$n + 1.5}s;
+  }
+}
+
+// options
+@for $n from 9 through 10 {
+  .show-#{$n} {
+    opacity: 0;
+    animation: options-show 0.3s 1 forwards;
+    animation-delay: #{($n - 9) * 0.3 + 10.5}s;
+  }
+}

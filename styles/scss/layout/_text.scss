@@ -1,6 +1,10 @@
-@use '../abstracts' as *;
+@use '../abstracts/abstracts' as *;
+@use '../abstracts/animations' as *;
 
 .text_ {
   h1 { color: map-get($text-colors, "main-heading"); }
   p { color: map-get($text-colors, "paragraph"); }
+  opacity: 0;
+  animation: text-appear 2s 1 forwards;
+  animation-delay: 2s;
 }

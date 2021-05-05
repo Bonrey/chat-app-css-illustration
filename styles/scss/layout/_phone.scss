@@ -1,10 +1,16 @@
-@use '../abstracts' as *;
+@use '../abstracts/abstracts' as *;
+@use '../abstracts/animations' as *;
 
 .phone_ {
   background-color: map-get($secondary-colors, "app-background");
   width: 17rem;
   height: 34rem;
   border-radius: 2rem;
+  animation: phone-appear 1s cubic-bezier(0.3, 0.4, 0.6, 1.3) 1;
+
+  @include media(lg) {
+    animation: phone-appear-lg 1.5s cubic-bezier(0.3, 0.4, 0.6, 1.3) 1;
+  }
 }
 
 header {
@@ -49,7 +55,7 @@ header {
     summary { 
       list-style: none;
 
-      &:focus { outline: 0.0625rem dotted white; }
+      &:focus-visible { outline: 0.0625rem dotted white; }
     }
 
     > div {
@@ -62,11 +68,11 @@ header {
       border: 0.0625rem dashed map-get($secondary-colors, "submit-button-background");
 
       a:hover { opacity: 1; }
-      a:focus { opacity: 1; text-decoration: underline; outline: none; }
+      a:focus-visible { opacity: 1; text-decoration: underline; outline: none; }
     }
 
     &[open] summary ~ * {
-      animation: show 400ms ease-in-out;
+      animation: attribution-show 400ms ease-in-out;
     }
   }
 }
