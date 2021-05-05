@@ -32,37 +32,17 @@
 }
 
 @keyframes options-show {
-  0% { opacity: 0; transform: scale(0); }
-  100% { opacity: 1; transform: scale(1); }
+  0% { opacity: 0; transform: translateX(-12rem); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
-
-// $dot-color-left: map-get($text-colors, "chat-on-the-left");
-// $dot-color-right: map-get($text-colors, "chat-on-the-right");
-// @mixin dot-typing($left: 0, $center: 0, $right: 0, $pos: "left") {
-//   $dot-color: $dot-color-left;
-//   @if $pos == "right" {
-//     $dot-color: $dot-color-right;
-//   }
-//   box-shadow: 999rem $left 0 0 $dot-color, 999.25rem $center 0 0 $dot-color, 999.5rem $right 0 0 $dot-color; 
-// }
-
-// @keyframes dot-typing {
-//   0% { @include dot-typing($dot-color: $dot-color-left); }
-//   16.667% { @include dot-typing($left: -0.75rem, $dot-color: $dot-color-left); }
-//   33.333% { @include dot-typing($dot-color: $dot-color-left); }
-//   50% { @include dot-typing($center: -0.75rem, $dot-color: $dot-color-left); }
-//   66.667% { @include dot-typing($dot-color: $dot-color-left); }
-//   83.333% { @include dot-typing($right: -0.75rem, $dot-color: $dot-color-left); }
-//   100% { @include dot-typing($dot-color: $dot-color-left); }
-// }
 
 // the first 2 messages
 @for $n from 1 through 2 {
   .show-#{$n} {
     opacity: 0;
     animation: message-show 1s 1 forwards;
-    animation-delay: #{$n + 1.5}s;
+    animation-delay: #{($n - 1) * 2.5 + 4}s;
   }
 }
 
@@ -70,8 +50,8 @@
 @for $n from 3 through 5 {
   .show-#{$n} {
     opacity: 0;
-    animation: picture-show 1s 1 forwards;
-    animation-delay: #{$n + 1.5}s;
+    animation: picture-show 0.5s 1 forwards;
+    animation-delay: #{($n - 3) * 0.5 + 9}s;
   }
 }
 
@@ -80,15 +60,13 @@
   .show-#{$n} {
     opacity: 0;
     animation: message-show 1s 1 forwards;
-    animation-delay: #{$n + 1.5}s;
+    animation-delay: #{($n - 6) * 2.5 + 11.5}s;
   }
 }
 
 // options
-@for $n from 9 through 10 {
-  .show-#{$n} {
-    opacity: 0;
-    animation: options-show 0.3s 1 forwards;
-    animation-delay: #{($n - 9) * 0.3 + 10.5}s;
-  }
+.show-9, .show-10 {
+  opacity: 0;
+  animation: options-show 0.75s 1 forwards ease-in-out;
+  animation-delay: 19s;
 }
